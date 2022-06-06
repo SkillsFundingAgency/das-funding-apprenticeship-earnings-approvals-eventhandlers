@@ -6,7 +6,7 @@ trigger:
 
 variables:
 - name: SolutionBaseName
-  value: SFA.DAS.Funding.ApprenticeshipEarnings.EventHandlers.Functions
+  value: SFA.DAS.Funding.ApprenticeshipEarnings.EventHandlers.Approvals.Functions
 - name: BuildConfiguration
   value: release
 - name: BuildPlatform
