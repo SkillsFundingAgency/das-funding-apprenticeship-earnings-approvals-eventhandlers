@@ -7,7 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace SFA.DAS.Funding.ApprenticeshipEarnings.EventHandlers.Approvals.Functions
+namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functions
 {
     public static class TestFunction
     {
