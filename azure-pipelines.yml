@@ -18,6 +18,7 @@ variables:
 - name: system.debug
   value: true
 
+
 resources:
   repositories:
   - repository: self
