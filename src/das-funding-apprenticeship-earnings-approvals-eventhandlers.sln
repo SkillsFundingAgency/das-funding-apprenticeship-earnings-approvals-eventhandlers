@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functions", "Functions\SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functions.csproj", "{1640C893-3AD7-4824-B9AF-7DBF4A78B48E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functions", "Functions\SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functions.csproj", "{1640C893-3AD7-4824-B9AF-7DBF4A78B48E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2C8DBC88-7981-4646-95E1-39917FED1B9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functions.UnitTests", "Functions.UnitTests\SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functions.UnitTests.csproj", "{59F90F37-3B9A-47BD-9049-6E7229989534}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{1640C893-3AD7-4824-B9AF-7DBF4A78B48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1640C893-3AD7-4824-B9AF-7DBF4A78B48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1640C893-3AD7-4824-B9AF-7DBF4A78B48E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F90F37-3B9A-47BD-9049-6E7229989534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F90F37-3B9A-47BD-9049-6E7229989534}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F90F37-3B9A-47BD-9049-6E7229989534}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F90F37-3B9A-47BD-9049-6E7229989534}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{59F90F37-3B9A-47BD-9049-6E7229989534} = {2C8DBC88-7981-4646-95E1-39917FED1B9A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F5440FE7-8805-4C9F-8CFC-D70FAFA449D8}
