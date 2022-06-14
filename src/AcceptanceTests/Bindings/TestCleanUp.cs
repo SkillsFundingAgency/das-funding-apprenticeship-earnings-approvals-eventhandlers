@@ -16,7 +16,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
         [AfterScenario()]
         public async Task CleanUp()
         {
-            if (_context.TestMessageBus.IsRunning)
+            if (_context.TestMessageBus != null &&  _context.TestMessageBus.IsRunning)
             {
                 await _context.TestMessageBus.Stop();
             }

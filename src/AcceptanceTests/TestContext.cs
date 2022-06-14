@@ -10,8 +10,8 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
     {
         public DirectoryInfo TestDirectory { get; set; }
         public TestMessageBus? TestMessageBus { get; set; }
-        public TestEarningsApi EarningsApi { get; set; }
-        public TestApprovalsFunctions ApprovalsFunctions { get; set; }
+        public TestEarningsApi? EarningsApi { get; set; }
+        public TestApprovalsFunctions? ApprovalsFunctions { get; set; }
         public TestData TestData { get; set; }
         public List<IHook> Hooks { get; set; }
 

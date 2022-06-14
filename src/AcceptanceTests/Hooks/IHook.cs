@@ -7,8 +7,8 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
     }
     public interface IHook<T> : IHook
     {
-        Action<T> OnReceived { get; set; }
-        Action<T> OnProcessed { get; set; }
-        Action<Exception, T> OnErrored { get; set; }
+        Action<T>? OnReceived { get; set; }
+        Action<T>? OnProcessed { get; set; }
+        Action<Exception, T>? OnErrored { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
         private readonly TestEarningsApi _testEarningsApi;
         private readonly Dictionary<string, string> _appConfig;
         private readonly Dictionary<string, string> _hostConfig;
-        private readonly TestMessageBus _testMessageBus;
+        private readonly TestMessageBus? _testMessageBus;
         private readonly List<IHook> _messageHooks;
         private IHost? _host;
         private bool _isDisposed;
@@ -56,7 +56,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
                     {
                         a.Sources.Clear();
                         a.AddInMemoryCollection(_appConfig);
-                        a.SetBasePath(_testMessageBus.StorageDirectory.FullName);
+                        a.SetBasePath(_testMessageBus?.StorageDirectory?.FullName);
                     })
                     .ConfigureWebJobs(startUp.Configure)
                 ;
@@ -74,7 +74,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
                     {
                         o.EndpointConfiguration = (endpoint) =>
                         {
-                            endpoint.UseTransport<LearningTransport>().StorageDirectory(_testMessageBus.StorageDirectory.FullName);
+                            endpoint.UseTransport<LearningTransport>().StorageDirectory(_testMessageBus?.StorageDirectory?.FullName);
                             return endpoint;
                         };
 
@@ -83,15 +83,15 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
                         {
                             o.OnMessageReceived = (message) =>
                             {
-                                hook?.OnReceived(message);
+                                hook.OnReceived?.Invoke(message);
                             };
                             o.OnMessageProcessed = (message) =>
                             {
-                                hook?.OnProcessed(message);
+                                hook.OnProcessed?.Invoke(message);
                             };
                             o.OnMessageErrored = (exception, message) =>
                             {
-                                hook?.OnErrored(exception, message);
+                                hook.OnErrored?.Invoke(exception, message);
                             };
                         }
                     });

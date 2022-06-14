@@ -8,6 +8,9 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
 
         private NullScope() { }
 
-        public void Dispose() { }
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
     }
 }
