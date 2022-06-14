@@ -9,7 +9,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
     public class TestContext : IDisposable
     {
         public DirectoryInfo TestDirectory { get; set; }
-        public TestMessageBus TestMessageBus { get; set; }
+        public TestMessageBus? TestMessageBus { get; set; }
         public TestEarningsApi EarningsApi { get; set; }
         public TestApprovalsFunctions ApprovalsFunctions { get; set; }
         public TestData TestData { get; set; }

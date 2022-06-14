@@ -24,7 +24,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
         {
             var waitForResult = new WaitForResult();
 
-            var hook = _testContext.Hooks.SingleOrDefault(h => h is Hook<T>) as Hook<T>;
+            var hook = (Hook<T>)_testContext.Hooks.Single(h => h is Hook<T>);
 
             hook.OnReceived = (message) => { waitForResult.SetHasStarted(); };
             hook.OnProcessed = (message) => { waitForResult.SetHasCompleted(); };
@@ -64,9 +64,9 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
             }
         }
 
-        private void TimedOutCallback(object state)
+        private void TimedOutCallback(object? state)
         {
-            ((WaitForResult)state).SetHasTimedOut();
+            ((WaitForResult)state!).SetHasTimedOut();
         }
     }
 }

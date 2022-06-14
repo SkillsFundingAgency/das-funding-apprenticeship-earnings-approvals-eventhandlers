@@ -8,9 +8,9 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
 {
     public class TestMessageBus
     {
-        private IEndpointInstance _endpointInstance;
+        private IEndpointInstance? _endpointInstance;
         public bool IsRunning { get; private set; }
-        public DirectoryInfo StorageDirectory { get; private set; }
+        public DirectoryInfo? StorageDirectory { get; private set; }
         public async Task Start(DirectoryInfo testDirectory)
         {
             StorageDirectory = new DirectoryInfo(Path.Combine(testDirectory.FullName, ".learningtransport"));
@@ -25,7 +25,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
                 .UseMessageConventions()
                 .UseTransport<LearningTransport>()
                 .StorageDirectory(StorageDirectory.FullName);
-            endpointConfiguration.UseLearningTransport(s => s.AddRouting());
+            endpointConfiguration.UseLearningTransport();
 
             _endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
             IsRunning = true;
@@ -33,7 +33,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
 
         public async Task Stop()
         {
-            await _endpointInstance.Stop();
+            await _endpointInstance?.Stop()!;
             IsRunning = false;
         }
 

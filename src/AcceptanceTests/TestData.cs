@@ -6,34 +6,34 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
 {
     public class TestData
     {
-        private readonly Dictionary<string, object> _testdata;
+        private readonly Dictionary<string, object> _testData;
         private readonly Fixture _fixture;
         public TestData()
         {
-            _testdata = new Dictionary<string, object>();
+            _testData = new Dictionary<string, object>();
             _fixture = new Fixture();
         }
 
-        public T GetOrCreate<T>(string key = null, Func<T> onCreate = null)
+        public T GetOrCreate<T>(string? key = null, Func<T>? onCreate = null)
         {
             if (key == null)
             {
                 key = typeof(T).FullName;
             }
 
-            if (!_testdata.ContainsKey(key))
+            if (!_testData.ContainsKey(key))
             {
                 if (onCreate == null)
                 {
-                    _testdata.Add(key, _fixture.Create<T>());
+                    _testData.Add(key, _fixture.Create<T>());
                 }
                 else
                 {
-                    _testdata.Add(key, onCreate.Invoke());
+                    _testData.Add(key, onCreate.Invoke());
                 }
             }
 
-            return (T)_testdata[key];
+            return (T)_testData[key];
         }
     }
 }

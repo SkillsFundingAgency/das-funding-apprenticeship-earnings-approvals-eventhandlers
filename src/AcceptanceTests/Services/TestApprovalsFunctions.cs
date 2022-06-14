@@ -21,8 +21,8 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
         private readonly Dictionary<string, string> _hostConfig;
         private readonly TestMessageBus _testMessageBus;
         private readonly List<IHook> _messageHooks;
-        private IHost host;
-        private bool isDisposed;
+        private IHost? _host;
+        private bool _isDisposed;
         
         public TestApprovalsFunctions(TestContext testContext)
         {
@@ -98,7 +98,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
             });
 
             hostBuilder.UseEnvironment("LOCAL");
-            host = await hostBuilder.StartAsync();
+            _host = await hostBuilder.StartAsync();
         }
 
         public void Dispose()
@@ -109,17 +109,17 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
 
         protected virtual void Dispose(bool disposing)
         {
-            if (isDisposed) return;
+            if (_isDisposed) return;
 
             if (disposing)
             {
-                host?.StopAsync();
+                _host?.StopAsync();
             }
-            host?.Dispose();
+            _host?.Dispose();
 
-            host?.Dispose();
+            _host?.Dispose();
 
-            isDisposed = true;
+            _isDisposed = true;
         }
     }
 }

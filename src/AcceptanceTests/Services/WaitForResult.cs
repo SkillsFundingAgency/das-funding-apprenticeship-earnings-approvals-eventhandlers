@@ -7,7 +7,7 @@ namespace SFA.DAS.Funding.ApprenticeshipEarnings.Approvals.EventHandlers.Functio
         public bool HasTimedOut { get; private set; }
         public bool HasStarted { get; private set; }
         public bool HasErrored { get; private set; }
-        public Exception LastException { get; private set; }
+        public Exception? LastException { get; private set; }
         public bool HasCompleted { get; private set; }
 
         public void SetHasTimedOut()
